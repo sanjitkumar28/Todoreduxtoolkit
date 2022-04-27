@@ -1,7 +1,7 @@
 type AddTodo = (newTodo: string) => void;
 type Todo={
   text:string,
-  id:number;
+  id:string;
 }
 type ToggleComplete = (selectedTodo: Todo) => void;
 type ClearTodo=()=>void
