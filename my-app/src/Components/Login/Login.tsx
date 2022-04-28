@@ -43,7 +43,7 @@ const Login = ()=> {
             <div>or</div>
             
             <div className="button" >
-            <Link to="/register" style={{ color: '#FFF' }}>Register</Link>
+            <Link to="/register" style={{ color: '#FFF' ,textDecoration: 'none'}}>Register</Link>
             </div>  
     </div>
   )

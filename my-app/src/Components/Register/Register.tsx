@@ -56,7 +56,7 @@ else{
             <div className="button" onClick={register} >Register</div>
             <div>or</div>
             <div className="button" >
-            <Link to="/" style={{ color: '#FFF'}}>Login</Link>
+            <Link to="/" style={{ color: '#FFF',textDecoration: 'none'}}>Login</Link>
             </div>
            
         </div>
