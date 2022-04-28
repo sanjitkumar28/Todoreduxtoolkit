@@ -20,8 +20,12 @@ const todoSlice=createSlice({
           },
           SortToDo(state,action){
                state.sort((a,b)=>a.text.localeCompare(b.text))
+          },
+          searchTodo(state,action:PayloadAction<Todo[]>){
+              console.log('inside search tododispatch');
+              return state=action.payload;
           }
      }
 })
-export const {addToDo,deleteToDo,clearAll,SortToDo}=todoSlice.actions;
+export const {addToDo,deleteToDo,clearAll,SortToDo,searchTodo}=todoSlice.actions;
 export default todoSlice.reducer;

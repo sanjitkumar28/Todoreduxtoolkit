@@ -2,11 +2,12 @@ import React, { useState,ChangeEvent ,FormEvent, useEffect} from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import { RootState } from "../app/store";
 import { v4 as uuid } from "uuid";
-import { addToDo,clearAll,SortToDo } from '../features/TodoSlice';
+import { addToDo,clearAll,SortToDo,searchTodo} from '../features/TodoSlice';
 export default function Taskform() {
     //write states
     const [newTodo, setNewTodo]=useState('');
-    const todoList = useSelector((state: RootState) => state);
+    const [searchTerm, setSearchTerm] = useState('');
+    const selectedAssets = useSelector((state: RootState) => state.todos);
     const dispatch = useDispatch();
 
     //write functions
@@ -38,6 +39,17 @@ export default function Taskform() {
       event.preventDefault();
       dispatch(SortToDo({}))
   }
+  
+  
+    useEffect(()=>{
+      let filteredAssetsData = searchTerm.length === 0 ?selectedAssets:
+      selectedAssets.filter((asset: Todo) => asset.text.toLowerCase().includes(searchTerm.toLowerCase()))
+      dispatch(searchTodo(filteredAssetsData));
+      },[searchTerm])
+  const handleSearchChange=(event:ChangeEvent<HTMLInputElement>)=>{
+    console.log(event.target.value);
+    setSearchTerm(event.target.value);
+  }
   return (
     <div>
          <>
@@ -56,6 +68,8 @@ export default function Taskform() {
                 <input type="text"
                     placeholder=" Search..."
                     name="search"
+                    value={searchTerm}
+                    onChange={handleSearchChange}
                     />
                </div>
                <div className="buttons">
