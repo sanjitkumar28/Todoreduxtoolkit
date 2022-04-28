@@ -23,19 +23,10 @@ export default function Register() {
     })
 }
 const register = () => {
-//   const { name, email, password, reEnterPassword } = user
-//   if( name && email && password && (password === reEnterPassword)){
-//       axios.post("http://localhost:9002/register", user)
-//       .then( res => {
-//           alert(res.data.message)
-//           history('/login')
-//       })
-//   } else {
-//       alert("invalid input")
-//   }
 if (user.name&&user.email&&user.password&&user.reEnterPassword) {
     if(user.password===user.reEnterPassword){
-    localStorage.setItem("localTask", JSON.stringify(user));
+    localStorage.setItem("email", JSON.stringify(user.email));
+    localStorage.setItem("password",JSON.stringify(user.password))
     setUser({
         name: "",
         email:"",
@@ -43,6 +34,7 @@ if (user.name&&user.email&&user.password&&user.reEnterPassword) {
         reEnterPassword: ""
     })
     alert('Successfully Register');
+    history('/');
     }
     else{
         alert('password not match');

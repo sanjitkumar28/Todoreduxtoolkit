@@ -23,38 +23,16 @@ const Login = ()=> {
   
     function handleLogin(event: React.MouseEvent<HTMLElement>) {
       event.preventDefault();
-      let password = localStorage.getItem("localtask");
-      let email=localStorage.getItem("localtask");
-      // let mail = localStorage.getItem("sanskarEmail").replace(/"/g, "") as string;
-    //   if (!user.email || !user.password) {
-    //     setFlag(true);
-    //     console.log("EMPTY");
-    //   } else if (user.password !== pass || user.email!== mail) {
-    //     setFlag(true);
-    //   } else {
-    //     setHome(!home);
-    //     setFlag(false);
-    //   }
-    // }
-  
-
-  //   const login = () => {
-  //     axios.post("http://localhost:9002/login", user)
-  //     .then(res => {       
-        
-  //       if (res.data.message === "Login Successfull") {
-          
-  //         history('/admin');
-  //       }
-  //       else {
-  //         alert(res.data.message);
-  //       }
-          
-         
-          
-  //     })
-  // }
-  history('/task');
+      let password = localStorage.getItem("password")?.replace(/"/g,"");
+      let email=localStorage.getItem("email")?.replace(/"/g,"");
+      console.log('handlelogin',password);
+      
+      if(user.email==email&&user.password){
+        history('/task');
+      }
+      else{
+          alert('User mail or password did not match');
+      }
     }
   return (
     <div className='login'>
