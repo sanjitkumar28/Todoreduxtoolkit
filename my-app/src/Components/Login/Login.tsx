@@ -39,9 +39,7 @@ const Login = ()=> {
       <input type="text" name="email" value={user.email} placeholder="Enter your Email" onChange={ handleChange }></input>
             <input type="password" name="password"  value={user.password} placeholder="Enter your Password"onChange={ handleChange } ></input>
             <div className="button" onClick={handleLogin} >Login</div>
-            
             <div>or</div>
-            
             <div className="button" >
             <Link to="/register" style={{ color: '#FFF' ,textDecoration: 'none'}}>Register</Link>
             </div>  

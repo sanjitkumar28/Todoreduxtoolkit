@@ -32,22 +32,20 @@ export default function Taskform() {
     const handleClear=(event: React.MouseEvent<HTMLElement>)=>{
       console.log('inside clear AL');
      event.preventDefault();
-     dispatch(clearAll({}));
+     dispatch(clearAll());
     }
     const handleSort=(event:React.MouseEvent<HTMLElement>)=>{
       console.log('inside sort');
       event.preventDefault();
       dispatch(SortToDo({}))
   }
-  
-  
-    useEffect(()=>{
+
+useEffect(()=>{
       let filteredAssetsData = searchTerm.length === 0 ?selectedAssets:
       selectedAssets.filter((asset: Todo) => asset.text.toLowerCase().includes(searchTerm.toLowerCase()))
       dispatch(searchTodo(filteredAssetsData));
       },[searchTerm])
   const handleSearchChange=(event:ChangeEvent<HTMLInputElement>)=>{
-    // console.log(event.target.value);
     setSearchTerm(event.target.value);
   }
   return (

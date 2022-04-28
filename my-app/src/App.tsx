@@ -7,6 +7,8 @@ import EditToDo from './Components/EditToDo';
 import { BrowserRouter , Routes, Route, Link } from "react-router-dom";
 import Register from './Components/Register/Register';
 function App() {
+  console.log('render');
+  
   return (
     <BrowserRouter>
     <Routes>

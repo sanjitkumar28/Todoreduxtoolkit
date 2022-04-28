@@ -9,3 +9,7 @@ type TodoDelete=(id:number)=>void
 type TodoEdit=(id:number,newtext:string)=>void
 type TodoSearch=(text:string)=>void;
 type Todosort=(sortstatus:boolean)=>void
+type locationedit={
+  text:string,
+  id:string
+}

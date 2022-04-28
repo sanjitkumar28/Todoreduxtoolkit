@@ -3,4 +3,22 @@
 }
 .centre{
     margin-left:40vw;
+    height: 30vw;
+}
+.btn{
+    margin: 10px;
+  }
+  
+.add-task-btn1 {
+    min-width:200px;
+    min-height:40px;
+    background-color: #790e43;
+    color: #ccc;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    outline: none;
+    cursor: pointer;
 }

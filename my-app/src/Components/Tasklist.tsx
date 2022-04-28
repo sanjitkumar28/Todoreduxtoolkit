@@ -6,7 +6,6 @@ import { RootState } from '../app/store'
 
 export default function Tasklist() {
   const todoList = useSelector((state: RootState) => state.todos);
-  console.log(todoList);
 
   return (
       <>

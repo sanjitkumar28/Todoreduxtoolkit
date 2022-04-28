@@ -14,8 +14,8 @@ const todoSlice=createSlice({
             const index=state.findIndex((todo)=>todo.id===action.payload)
             state.splice(index,1); 
           },
-          clearAll:(state,action)=>{
-               console.log('çlear dispatch');
+          clearAll:(state)=>{
+               console.log('clear dispatch');
             return state=[] ;
           },
           SortToDo(state,action){
@@ -24,8 +24,18 @@ const todoSlice=createSlice({
           searchTodo(state,action:PayloadAction<Todo[]>){
               console.log('inside search tododispatch');
               return state=action.payload;
+          },
+          editToDo(state,action:PayloadAction<Todo>){
+               console.log('inside edit dispatch');
+               let todos=state;
+               state=todos.map((todo)=>{
+                  if(todo.id==action.payload.id){
+                       todo.text=action.payload.text;
+                  } 
+                  return todo;
+               })
           }
      }
 })
-export const {addToDo,deleteToDo,clearAll,SortToDo,searchTodo}=todoSlice.actions;
+export const {addToDo,deleteToDo,clearAll,SortToDo,searchTodo,editToDo}=todoSlice.actions;
 export default todoSlice.reducer;

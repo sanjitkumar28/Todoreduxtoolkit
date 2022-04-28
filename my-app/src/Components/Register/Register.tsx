@@ -3,7 +3,6 @@ import React,{useState,ChangeEvent} from 'react'
 import { useNavigate } from 'react-router-dom';
 import {Link } from 'react-router-dom';
 import "./Register.css"
-
 export default function Register() {
   const history =  useNavigate()
   const [ user, setUser] = useState({
@@ -58,7 +57,6 @@ else{
             <div className="button" >
             <Link to="/" style={{ color: '#FFF',textDecoration: 'none'}}>Login</Link>
             </div>
-           
         </div>
     </div>
   )

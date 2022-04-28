@@ -14,7 +14,7 @@ const history=useNavigate();
            <li className="todo-row">{todo.text}
            <div className="button" >
            {/* <Link to="/edit" style={{ color: '#FFF',textDecoration: 'none'}}>EDIT</Link> */}
-           <div>Edit</div>
+           <div onClick={()=> history('/edit',{state:{text:todo.text,id:todo.id}})}>Edit</div>
            </div>
            <div className="button" >
            <div onClick={()=>{dispatch(deleteToDo(todo.id))}}>Delete</div>
