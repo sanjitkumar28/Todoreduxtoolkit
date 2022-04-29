@@ -11,6 +11,10 @@ export default function EditToDo() {
 //   console.log(val.text);
 const dispatch = useDispatch();
   const [edit,setEdit]=useState(val.text);
+  const[title,setTitle]=useState(val.title)
+  const handleTitleChange=(event:ChangeEvent<HTMLInputElement>)=>{
+    setTitle(event.target.value);
+ }
   const handleChange=(event:ChangeEvent<HTMLInputElement>)=>{
      setEdit(event.target.value);
   }
@@ -18,6 +22,7 @@ const dispatch = useDispatch();
     event.preventDefault();
     console.log(edit);
     dispatch(editToDo({
+        title:title,
         text:edit,
         id:val.id
     }))
@@ -34,6 +39,14 @@ const dispatch = useDispatch();
         </div>
         */}
         <form className="form" >
+          <h2>Enter To Do Title</h2>
+        <input
+              type="text"
+               className="task-input"
+               value={title}
+               onChange={handleTitleChange}
+        />
+        <h2>Enter To Do Text</h2>
         <input
               type="text"
                value={edit}

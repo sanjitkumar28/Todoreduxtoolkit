@@ -6,12 +6,13 @@ import { RootState } from '../app/store'
 
 export default function Tasklist() {
   const todoList = useSelector((state: RootState) => state.todos);
-
+  const todoListduplicat=useSelector((state:RootState)=>state.todosuplicate)
+  const todoListFinal=todoListduplicat.length>0?todoListduplicat:todoList
   return (
       <>
       <Taskform/>
         <ul>
-            {todoList.map(todo => (
+            {todoListFinal.map(todo => (
          <Task
           key={todo.id}
           todo={todo}

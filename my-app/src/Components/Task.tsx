@@ -11,10 +11,13 @@ const history=useNavigate();
   return (
     <div>
        <ul>
-           <li className="todo-row">{todo.text}
+           <li className="todo-row">{todo.title}
+            <div>
+            {todo.text}
+              </div>
            <div className="button" >
            {/* <Link to="/edit" style={{ color: '#FFF',textDecoration: 'none'}}>EDIT</Link> */}
-           <div onClick={()=> history('/edit',{state:{text:todo.text,id:todo.id}})}>Edit</div>
+           <div onClick={()=> history('/edit',{state:{title:todo.title,text:todo.text,id:todo.id}})}>Edit</div>
            </div>
            <div className="button" >
            <div onClick={()=>{dispatch(deleteToDo(todo.id))}}>Delete</div>
