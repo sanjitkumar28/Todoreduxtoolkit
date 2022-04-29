@@ -6,6 +6,7 @@ const todoSearchSlice=createSlice({
      initialState,
      reducers:{
           searchTodo:(state,action:PayloadAction<Todo[]>)=>{
+               console.log('inside dispatch');
                return state=action.payload;
           }
      }

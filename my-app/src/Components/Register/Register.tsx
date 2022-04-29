@@ -2,9 +2,12 @@ import userEvent from '@testing-library/user-event';
 import React,{useState,ChangeEvent} from 'react'
 import { useNavigate } from 'react-router-dom';
 import {Link } from 'react-router-dom';
+import { useSelector,useDispatch } from 'react-redux';
+import { addUser} from '../../features/userSlice';
 import "./Register.css"
 export default function Register() {
   const history =  useNavigate()
+  const dispatch=useDispatch()
   const [ user, setUser] = useState({
     name: "",
     email:"",
@@ -24,8 +27,13 @@ export default function Register() {
 const register = () => {
 if (user.name&&user.email&&user.password&&user.reEnterPassword) {
     if(user.password===user.reEnterPassword){
-    localStorage.setItem("email", JSON.stringify(user.email));
-    localStorage.setItem("password",JSON.stringify(user.password))
+    // localStorage.setItem("email", JSON.stringify(user.email));
+    // localStorage.setItem("password",JSON.stringify(user.password))
+    dispatch(addUser({
+       email:user.email,
+       password:user.password,
+       result:false
+    }))
     setUser({
         name: "",
         email:"",

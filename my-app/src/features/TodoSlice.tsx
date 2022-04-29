@@ -24,7 +24,6 @@ const todoSlice=createSlice({
           },
           SortToDo:(state,action)=>{
                console.log('inside sort');
-               
                state.sort((a,b)=>a.text.localeCompare(b.text))
                localStorage.setItem('todotask',JSON.stringify(state));
           },

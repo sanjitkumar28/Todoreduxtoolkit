@@ -2,11 +2,11 @@ import React from 'react'
 import Task from './Task'
 import Taskform from './Taskform'
 import { useSelector,useDispatch } from 'react-redux'
-import { RootState } from '../app/store'
+import { data, RootState } from '../app/store'
 
 export default function Tasklist() {
   const todoList = useSelector((state: RootState) => state.todos);
-  const todoListduplicat=useSelector((state:RootState)=>state.todosuplicate)
+  const todoListduplicat=useSelector(data)
   const todoListFinal=todoListduplicat.length>0?todoListduplicat:todoList
   return (
       <>

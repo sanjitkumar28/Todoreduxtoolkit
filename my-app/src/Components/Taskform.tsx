@@ -25,10 +25,9 @@ export default function Taskform() {
         event.preventDefault();
         const str:string=uuid()
         const todoval=newTodo.trim();
-        const titleval=toDoTitle;
+        const titleval=toDoTitle.trim();
         console.log(titleval);
-        
-        if(todoval.length>0){
+        if(todoval.length>0&&titleval.length>0){
           dispatch(addToDo({
             title:titleval,
             text:todoval,
@@ -43,8 +42,8 @@ export default function Taskform() {
      event.preventDefault();
      dispatch(clearAll());
     }
+    
     const handleSort=(event:React.MouseEvent<HTMLElement>)=>{
-      // console.log('inside sort');
       event.preventDefault();
       dispatch(SortToDo({}))
   }
@@ -54,7 +53,6 @@ export default function Taskform() {
   //   dispatch(searchTodo(filteredAssetsData));
   //   },[searchTerm])
 useEffect(()=>{
-    //  console.log('useeffect');
      console.log(selectedAssets);
       let filteredAssetsData = searchTerm.length === 0 ?selectedAssets:selectedAssets.filter((asset: Todo) => asset.text.toLowerCase().includes(searchTerm.toLowerCase()))
       console.log(filteredAssetsData);
@@ -66,6 +64,12 @@ useEffect(()=>{
 // }
   const handleSearchChange=(event:ChangeEvent<HTMLInputElement>)=>{
     setSearchTerm(event.target.value);
+    // console.log("hi"+searchTerm);
+    
+    // console.log(selectedAssets);
+    //   let filteredAssetsData = searchTerm.length === 0 ?selectedAssets:selectedAssets.filter((asset: Todo) => asset.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    //   console.log(filteredAssetsData);
+    //   dispatch(searchTodo(filteredAssetsData));
     //  search(event.target.value);
   }
   return (

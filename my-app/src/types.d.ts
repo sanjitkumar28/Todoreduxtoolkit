@@ -18,4 +18,5 @@ type locationedit={
 type user={
   email:string,
   password:string,
+  result:boolean
 }

@@ -1,8 +1,13 @@
 import React,{useState,ChangeEvent} from 'react'
 import {Link,useNavigate } from "react-router-dom"
+import { useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { RootState } from '../../app/store'
 import './Login.css'
+import { userInfo } from 'os';
 const Login = ()=> {
-    const history =  useNavigate ();
+  const userList = useSelector((state: RootState) => state.user);
+    const navigate =  useNavigate ();
     const [ user, setUser] = useState({
         email:"",
         password:"",
@@ -17,22 +22,28 @@ const Login = ()=> {
             [name]: value
         })
     }
-    const [flag, setFlag] = useState(false);
-
-    const [home, setHome] = useState(true);
-  
     function handleLogin(event: React.MouseEvent<HTMLElement>) {
-      event.preventDefault();
-      let password = localStorage.getItem("password")?.replace(/"/g,"");
-      let email=localStorage.getItem("email")?.replace(/"/g,"");
-      console.log('handlelogin',password);
+    let flag=false;
+    userList.map((users)=>{
+      if(users.email==user.email&&users.password===user.password){
+        flag=true;
+        navigate('/task')
+      }
+      })
+   if(!flag){
+     alert('mail and password did not match');
+   }
+  
+      // let password = localStorage.getItem("password")?.replace(/"/g,"");
+      // let email=localStorage.getItem("email")?.replace(/"/g,"");
+      // console.log('handlelogin',password);
       
-      if(user.email==email&&user.password){
-        history('/task');
-      }
-      else{
-          alert('User mail or password did not match');
-      }
+      // if(user.email==email&&user.password){
+      //   history('/task');
+      // }
+      // else{
+      //     alert('User mail or password did not match');
+      // }
     }
   return (
     <div className='login'>
