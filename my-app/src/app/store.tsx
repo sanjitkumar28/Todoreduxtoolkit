@@ -9,6 +9,5 @@ export const store = configureStore({
       user:userSlicereducer
     },
   })
-export const data=(state:RootState)=>state.todosuplicate  
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

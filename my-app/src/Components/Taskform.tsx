@@ -54,13 +54,11 @@ export default function Taskform() {
   //   },[searchTerm])
 useEffect(()=>{
      console.log(selectedAssets);
-      let filteredAssetsData = searchTerm.length === 0 ?selectedAssets:selectedAssets.filter((asset: Todo) => asset.text.toLowerCase().includes(searchTerm.toLowerCase()))
+      let filteredAssetsData = searchTerm.length === 0 ?[]:selectedAssets.filter((asset: Todo) => asset.text.toLowerCase().includes(searchTerm.toLowerCase()))
       console.log(filteredAssetsData);
       dispatch(searchTodo(filteredAssetsData));
       },[searchTerm])
-//   const search=(text:string)=>{
-//     let filteredAssetsData = selectedAssets.filter((asset: Todo) => asset.text.toLowerCase().includes(searchTerm.toLowerCase()));
-//     dispatch(searchTodo(filteredAssetsData));
+
 // }
   const handleSearchChange=(event:ChangeEvent<HTMLInputElement>)=>{
     setSearchTerm(event.target.value);

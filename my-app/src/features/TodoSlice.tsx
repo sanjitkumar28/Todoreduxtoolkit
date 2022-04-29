@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState:Todo[]=localStorage.getItem('todotask')?
 JSON.parse(localStorage.getItem('todotask')||'{}'):[];
-
+// const initialState=[] as Todo[];
 const todoSlice=createSlice({
      name:'todos',
      initialState,
@@ -12,15 +12,16 @@ const todoSlice=createSlice({
             localStorage.setItem('todotask',JSON.stringify(state));
           },
           deleteToDo:(state,action:PayloadAction<string>)=>{
+               console.log('inside delete');
             const index=state.findIndex((todo)=>todo.id===action.payload)
             state.splice(index,1); 
             localStorage.setItem('todotask',JSON.stringify(state))
+            
           },
           clearAll:(state)=>{
           let taskobj:Todo[]=[]
           localStorage.setItem('todotask',JSON.stringify(taskobj))
             return state=[] ;
-           ;
           },
           SortToDo:(state,action)=>{
                console.log('inside sort');
